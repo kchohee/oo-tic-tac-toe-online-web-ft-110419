@@ -74,7 +74,7 @@ class TicTacToe
     return false
   end
   def full?
-    @board.none?{|o| occ == " " || o == nil}
+    @board.none?{|o| o == " " || o == nil}
   end
   def draw?
     !won? && full?
