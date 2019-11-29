@@ -40,7 +40,6 @@ class TicTacToe
       end
     return @counter
   end
-
   def current_player
     turn_count
     if @counter % 2 == 0
@@ -49,7 +48,17 @@ class TicTacToe
       return "O"
     end
   end
-
+  def turn
+    puts "Please enter 1-9:"
+    input = gets.strip
+    index = input_to_index(input)
+    if valid_move? (index)
+      move(index, current_player)
+      display_board
+    else
+      turn
+    end
+  end
   def won?
     WIN_COMBINATIONS.each do |win_combination|
       win_index_1 = win_combination[0]
@@ -65,16 +74,5 @@ class TicTacToe
       end
     end
     return false
-  end
-  def turn
-    puts "Please enter 1-9:"
-    input = gets.strip
-    index = input_to_index(input)
-    if valid_move? (index)
-      move(index, current_player)
-      display_board
-    else
-      turn
-    end
   end
 end
