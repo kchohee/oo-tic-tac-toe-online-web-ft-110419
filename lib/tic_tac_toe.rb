@@ -78,4 +78,27 @@ class TicTacToe
   def full?
     @board.none?{|occ| occ == " " || occ == nil}
   end
+  def draw?
+    !won? && full?
+  end
+  def over?
+    won? || draw?
+  end
+
+  def winner
+    if won?
+      @board[won?[0]]
+    end
+  end
+
+  def play
+    while !over?
+      turn
+    end
+    if draw?
+      puts "Cat's Game!"
+    elsif won?
+      puts "Congratulations #{winner}!"
+    end
+  end
 end
