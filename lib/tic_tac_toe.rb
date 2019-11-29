@@ -76,7 +76,7 @@ class TicTacToe
     return false
   end
   def full?
-    @board.none?{|occ| occ == " " || occ == nil}
+    @board.none?{|o| occ == " " || o == nil}
   end
   def draw?
     !won? && full?
@@ -84,13 +84,11 @@ class TicTacToe
   def over?
     won? || draw?
   end
-
   def winner
     if won?
       @board[won?[0]]
     end
   end
-
   def play
     while !over?
       turn
