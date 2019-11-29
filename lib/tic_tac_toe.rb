@@ -75,4 +75,7 @@ class TicTacToe
     end
     return false
   end
+  def full?
+    @board.none?{|occ| occ == " " || occ == nil}
+  end
 end
